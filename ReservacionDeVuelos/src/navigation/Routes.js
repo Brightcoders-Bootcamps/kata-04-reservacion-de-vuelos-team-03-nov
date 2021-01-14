@@ -1,16 +1,13 @@
 import React from 'react';
-import {
-    Text,
-    TouchableOpacity
-} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import AuthStack from './AuthStack';
 
 const Routes = () => {
-    return(
-        // Here we will call Auth Stack
-        <TouchableOpacity>
-            <Text>Hey, it works!</Text>
-        </TouchableOpacity>
-    );
+  return (
+    <NavigationContainer>
+      <AuthStack />
+    </NavigationContainer>
+  );
 };
 
 export default Routes;

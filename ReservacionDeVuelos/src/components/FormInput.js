@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 
-const GoogleButton = () => {
+const FormInput = () => {
   return (
     <TouchableOpacity>
       <Text>Hey, it works!</Text>
@@ -9,4 +9,4 @@ const GoogleButton = () => {
   );
 };
 
-export default GoogleButton;
+export default FormInput;
