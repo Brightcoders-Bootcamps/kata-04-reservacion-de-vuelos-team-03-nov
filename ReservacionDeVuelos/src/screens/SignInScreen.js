@@ -1,12 +1,14 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import contentText from '../utils/Constants';
+import colors from '../utils/Colors';
 
 const SignInScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>SIGN IN SCREEN</Text>
+      <Text style={styles.text}> {contentText.signInTitle} </Text>
       <TouchableOpacity onPress={() => navigation.navigate('LogIn')}>
-        <Text style={styles.goToLogIn}>Have an account? Sign In!</Text>
+        <Text style={styles.goToLogIn}> {contentText.haveAccount} </Text>
       </TouchableOpacity>
     </View>
   );
@@ -22,11 +24,11 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    color: 'black',
+    color: colors.black,
     alignItems: 'center',
   },
   goToLogIn: {
-    color: 'blue',
+    color: colors.blue,
     fontWeight: 'bold',
   },
 });
