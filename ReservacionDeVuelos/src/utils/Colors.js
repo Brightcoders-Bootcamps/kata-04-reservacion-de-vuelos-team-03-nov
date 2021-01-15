@@ -1,7 +1,7 @@
 export default colors = {
   white: '#fff',
   black: '#000',
-  blue: '#2874A6',
-  darkBlue: '#023e8a',
-  gray: '#ced4da',
+  blue: '#046BF1',
+  gray: '#C2C4C0',
+  darkGray: '#757575',
 };
