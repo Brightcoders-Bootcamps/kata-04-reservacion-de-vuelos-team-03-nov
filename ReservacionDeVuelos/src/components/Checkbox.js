@@ -5,15 +5,15 @@ import CheckBox from '@react-native-community/checkbox';
 import contentText from '../utils/Constants';
 
 function CheckBoxComponent() {
-  const [isSelected, setSelection] = useState(false);
-  const [isSelected2, setSelection2] = useState(false);
+  const [AgreeTermsSelected, setAgreeTermsSelected] = useState(false);
+  const [SuscribeSelected, setSuscribeSelected] = useState(false);
   return (
     <>
       <View style={styles.container}>
         <View style={styles.checkboxContainer}>
           <CheckBox
-            value={isSelected}
-            onValueChange={setSelection}
+            value={AgreeTermsSelected}
+            onValueChange={setAgreeTermsSelected}
             style={styles.checkbox}
             tintColors={{true: colors.blue, false: colors.black}}
           />
@@ -21,7 +21,6 @@ function CheckBoxComponent() {
             I agree to the
             <Text style={{textDecorationLine: 'underline'}}> Terms</Text> and
             <Text style={{textDecorationLine: 'underline'}}>
-              {' '}
               Privacy Policy.
             </Text>
             *
@@ -29,8 +28,8 @@ function CheckBoxComponent() {
         </View>
         <View style={styles.checkboxContainer}>
           <CheckBox
-            value={isSelected2}
-            onValueChange={setSelection2}
+            value={SuscribeSelected}
+            onValueChange={setSuscribeSelected}
             style={styles.checkbox}
             tintColors={{true: colors.blue, false: colors.black}}
           />
