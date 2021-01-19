@@ -26,7 +26,6 @@ exports[`renders correctly 1`] = `
           "fontSize": 20,
           "fontWeight": "bold",
           "marginBottom": 10,
-          "marginLeft": -5,
         }
       }
     >
@@ -39,6 +38,7 @@ exports[`renders correctly 1`] = `
         Object {
           "color": "#000",
           "fontSize": 13,
+          "padding": 3,
         }
       }
     >
@@ -49,34 +49,54 @@ exports[`renders correctly 1`] = `
     <View
       style={
         Object {
-          "alignItems": "center",
-          "backgroundColor": "#fff",
-          "borderColor": "#000",
-          "borderRadius": 3,
-          "borderWidth": 1,
-          "height": 88.93333333333334,
-          "marginBottom": 10,
-          "marginTop": 5,
-          "width": 332,
+          "flexDirection": "row",
         }
       }
     >
-      <TextInput
-        allowFontScaling={true}
-        rejectResponderTermination={true}
-        secureTextEntry={false}
+      <View
         style={
           Object {
             "alignItems": "center",
+            "backgroundColor": "#fff",
             "borderColor": "#000",
-            "color": "#333",
-            "flex": 1,
-            "fontSize": 16,
-            "justifyContent": "flex-start",
-            "padding": 10,
+            "height": 88.93333333333334,
+            "marginBottom": 2,
+            "marginLeft": 7,
+            "width": "80%",
           }
         }
-        underlineColorAndroid="transparent"
+      >
+        <TextInput
+          allowFontScaling={true}
+          rejectResponderTermination={true}
+          secureTextEntry={false}
+          style={
+            Object {
+              "borderBottomWidth": 1,
+              "borderColor": "#000",
+              "borderLeftWidth": 1,
+              "borderTopWidth": 1,
+              "color": "#000",
+              "fontSize": 16,
+              "height": 88.93333333333334,
+              "marginBottom": 2,
+              "width": "100%",
+            }
+          }
+          underlineColorAndroid="transparent"
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "borderBottomWidth": 1,
+            "borderRightWidth": 1,
+            "borderTopWidth": 1,
+            "height": 88.93333333333334,
+            "justifyContent": "center",
+            "width": "15%",
+          }
+        }
       />
     </View>
     <Text
@@ -84,6 +104,7 @@ exports[`renders correctly 1`] = `
         Object {
           "color": "#000",
           "fontSize": 13,
+          "padding": 3,
         }
       }
     >
@@ -93,34 +114,54 @@ exports[`renders correctly 1`] = `
     <View
       style={
         Object {
-          "alignItems": "center",
-          "backgroundColor": "#fff",
-          "borderColor": "#000",
-          "borderRadius": 3,
-          "borderWidth": 1,
-          "height": 88.93333333333334,
-          "marginBottom": 10,
-          "marginTop": 5,
-          "width": 332,
+          "flexDirection": "row",
         }
       }
     >
-      <TextInput
-        allowFontScaling={true}
-        rejectResponderTermination={true}
-        secureTextEntry={false}
+      <View
         style={
           Object {
             "alignItems": "center",
+            "backgroundColor": "#fff",
             "borderColor": "#000",
-            "color": "#333",
-            "flex": 1,
-            "fontSize": 16,
-            "justifyContent": "flex-start",
-            "padding": 10,
+            "height": 88.93333333333334,
+            "marginBottom": 2,
+            "marginLeft": 7,
+            "width": "80%",
           }
         }
-        underlineColorAndroid="transparent"
+      >
+        <TextInput
+          allowFontScaling={true}
+          rejectResponderTermination={true}
+          secureTextEntry={false}
+          style={
+            Object {
+              "borderBottomWidth": 1,
+              "borderColor": "#000",
+              "borderLeftWidth": 1,
+              "borderTopWidth": 1,
+              "color": "#000",
+              "fontSize": 16,
+              "height": 88.93333333333334,
+              "marginBottom": 2,
+              "width": "100%",
+            }
+          }
+          underlineColorAndroid="transparent"
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "borderBottomWidth": 1,
+            "borderRightWidth": 1,
+            "borderTopWidth": 1,
+            "height": 88.93333333333334,
+            "justifyContent": "center",
+            "width": "15%",
+          }
+        }
       />
     </View>
     <Text
@@ -128,6 +169,7 @@ exports[`renders correctly 1`] = `
         Object {
           "color": "#000",
           "fontSize": 13,
+          "padding": 3,
         }
       }
     >
@@ -138,70 +180,89 @@ exports[`renders correctly 1`] = `
     <View
       style={
         Object {
-          "alignItems": "center",
-          "backgroundColor": "#fff",
-          "borderColor": "#000",
-          "borderRadius": 3,
-          "borderWidth": 1,
-          "height": 88.93333333333334,
-          "marginBottom": 10,
-          "marginTop": 5,
-          "width": 332,
+          "flexDirection": "row",
         }
       }
     >
-      <TextInput
-        allowFontScaling={true}
-        rejectResponderTermination={true}
-        secureTextEntry={true}
+      <View
         style={
           Object {
             "alignItems": "center",
+            "backgroundColor": "#fff",
             "borderColor": "#000",
-            "color": "#333",
-            "flex": 1,
-            "fontSize": 16,
-            "justifyContent": "flex-start",
-            "padding": 10,
+            "height": 88.93333333333334,
+            "marginBottom": 2,
+            "marginLeft": 7,
+            "width": "80%",
           }
         }
-        underlineColorAndroid="transparent"
-      />
-    </View>
-    <View
-      accessible={true}
-      focusable={false}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "alignItems": "center",
-          "justifyContent": "center",
-          "opacity": 1,
-          "width": "20%",
-        }
-      }
-    >
-      <Image
-        source={
-          Object {
-            "process": [Function],
+      >
+        <TextInput
+          allowFontScaling={true}
+          rejectResponderTermination={true}
+          secureTextEntry={true}
+          style={
+            Object {
+              "borderBottomWidth": 1,
+              "borderColor": "#000",
+              "borderLeftWidth": 1,
+              "borderTopWidth": 1,
+              "color": "#000",
+              "fontSize": 16,
+              "height": 88.93333333333334,
+              "marginBottom": 2,
+              "width": "100%",
+            }
           }
-        }
+          underlineColorAndroid="transparent"
+        />
+      </View>
+      <View
         style={
           Object {
-            "height": 30,
-            "marginLeft": 280,
-            "marginTop": -60,
-            "width": 30,
+            "borderBottomWidth": 1,
+            "borderRightWidth": 1,
+            "borderTopWidth": 1,
+            "height": 88.93333333333334,
+            "justifyContent": "center",
+            "width": "15%",
           }
         }
-      />
+      >
+        <View
+          accessible={true}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "opacity": 1,
+              "width": "50%",
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "process": [Function],
+              }
+            }
+            style={
+              Object {
+                "height": 30,
+                "width": 30,
+              }
+            }
+          />
+        </View>
+      </View>
     </View>
   </View>
   <Text
@@ -209,7 +270,6 @@ exports[`renders correctly 1`] = `
       Object {
         "fontSize": 11,
         "marginLeft": 16,
-        "marginTop": -10,
       }
     }
   >
@@ -219,7 +279,6 @@ exports[`renders correctly 1`] = `
     style={
       Object {
         "marginHorizontal": 2,
-        "marginLeft": -18,
         "marginTop": 15,
       }
     }
@@ -363,7 +422,7 @@ exports[`renders correctly 1`] = `
         "marginTop": 10,
         "opacity": 1,
         "padding": 10,
-        "width": 300,
+        "width": "85%",
       }
     }
   >
@@ -414,7 +473,7 @@ exports[`renders correctly 1`] = `
         "marginTop": 10,
         "opacity": 1,
         "padding": 10,
-        "width": 300,
+        "width": "85%",
       }
     }
   >

@@ -81,7 +81,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: colors.blue,
     fontWeight: 'bold',
-    marginLeft: -5,
     marginBottom: 10,
   },
   ContainerInput: {
@@ -91,17 +90,12 @@ const styles = StyleSheet.create({
   formInputtext: {
     color: colors.black,
     fontSize: 13,
+    padding: 3,
   },
-
   goToSignIn: {
     color: colors.blue,
     fontSize: 16,
     textDecorationLine: 'underline',
-  },
-  logo: {
-    height: 240,
-    width: 300,
-    resizeMode: 'cover',
   },
   login: {
     flexDirection: 'row',
@@ -118,7 +112,6 @@ const styles = StyleSheet.create({
   restricted_password: {
     fontSize: 11,
     marginLeft: 16,
-    marginTop: -10,
   },
   textOr: {
     color: colors.darkGray,
@@ -126,4 +119,5 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
 export default SignInScreen;

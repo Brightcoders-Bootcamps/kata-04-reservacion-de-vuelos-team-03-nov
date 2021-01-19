@@ -10,17 +10,10 @@ import {
 import {windowHeight, windowWith} from '../utils/Dimensions';
 import colors from '../utils/Colors';
 
-const FormInput = ({
-  placeholderText,
-  labelValue,
-  secureTextEntry,
-  source,
-  ...rest
-}) => {
+const FormInput = ({placeholderText, labelValue, secureTextEntry, source, ...rest}) => {
   let ruta = source;
-
   return (
-    <>
+    <View style={styles.Container}>
       <View style={styles.inputContainer}>
         <TextInput
           value={labelValue}
@@ -29,46 +22,57 @@ const FormInput = ({
           secureTextEntry={secureTextEntry}
         />
       </View>
-      {ruta != undefined && (
-        <TouchableOpacity style={styles.viewIconGoogle}>
-          <Image style={styles.iconGoogle} source={ruta} />
-        </TouchableOpacity>
-      )}
-    </>
+      <View style={styles.containerIconEye}>
+        {ruta != undefined && (
+          <TouchableOpacity style={styles.viewIconEye}>
+            <Image style={styles.iconEye} source={ruta} />
+          </TouchableOpacity>
+        )}
+      </View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  Container: {
+    flexDirection: 'row',
+  },
   inputContainer: {
-    marginTop: 5,
-    width: 332,
-    marginBottom: 10,
+    width: '80%',
+    marginBottom: 2,
     height: windowHeight / 15,
     borderColor: colors.black,
-    borderRadius: 3,
-    borderWidth: 1,
     alignItems: 'center',
     backgroundColor: colors.white,
+    marginLeft: 7,
   },
   input: {
-    padding: 10,
-    flex: 1,
+    height: windowHeight / 15,
+    marginBottom: 2,
+    width: '100%',
     fontSize: 16,
-    color: '#333',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
+    color: colors.black,
     borderColor: colors.black,
+    borderLeftWidth: 1,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
   },
-  viewIconGoogle: {
-    width: '20%',
+  containerIconEye: {
+    justifyContent: 'center',
+    width: '15%',
+    height: windowHeight / 15,
+    borderRightWidth: 1,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+  },
+  viewIconEye: {
+    width: '50%',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  iconGoogle: {
+  iconEye: {
     height: 30,
     width: 30,
-    marginLeft: 280,
-    marginTop: -60,
   },
 });
 

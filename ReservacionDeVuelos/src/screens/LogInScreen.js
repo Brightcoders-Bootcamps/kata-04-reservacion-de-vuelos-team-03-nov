@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import colors from '../utils/Colors';
 import contentText from '../utils/Constants';
 import FormButton from '../components/FormButton';
@@ -41,15 +41,12 @@ const LogInScreen = ({navigation}) => {
   );
 };
 
-export default LogInScreen;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.white,
-    padding: 20,
   },
   title: {
     fontSize: 20,
@@ -57,7 +54,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     fontWeight: 'bold',
     marginBottom: 10,
-    marginLeft: -5,
   },
   ContainerInput: {
     marginTop: 25,
@@ -73,11 +69,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textDecorationLine: 'underline',
   },
-  logo: {
-    height: 240,
-    width: 300,
-    resizeMode: 'cover',
-  },
   login: {
     flexDirection: 'row',
     marginTop: 40,
@@ -87,3 +78,5 @@ const styles = StyleSheet.create({
     color: colors.darkGray,
   },
 });
+
+export default LogInScreen;

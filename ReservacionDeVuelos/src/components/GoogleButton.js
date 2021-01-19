@@ -31,7 +31,7 @@ const GoogleButton = ({buttonTitle, backgroundColor, color, ...rest}) => {
 const styles = StyleSheet.create({
   buttonContainer: {
     marginTop: 10,
-    width: 300,
+    width: '85%',
     height: windowHeight / 15,
     padding: 10,
     flexDirection: 'row',
@@ -56,4 +56,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
 export default GoogleButton;
