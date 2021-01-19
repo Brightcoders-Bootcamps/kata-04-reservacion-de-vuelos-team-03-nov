@@ -23,11 +23,11 @@ const FormInput = ({placeholderText, labelValue, secureTextEntry, source, ...res
         />
       </View>
       <View style={styles.containerIconEye}>
-        {ruta != undefined && (
+        {ruta &&
           <TouchableOpacity style={styles.viewIconEye}>
             <Image style={styles.iconEye} source={ruta} />
           </TouchableOpacity>
-        )}
+        }
       </View>
     </View>
   );
