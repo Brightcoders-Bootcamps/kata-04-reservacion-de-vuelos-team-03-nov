@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "marginHorizontal": 2,
+      "marginTop": 15,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "marginBottom": 5,
+        "width": "90%",
+      }
+    }
+  >
+    <View
+      pointerEvents="auto"
+    >
+      <RNCCheckbox
+        forwardedRef={null}
+        onValueChange={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "height": 32,
+              "width": 32,
+            },
+            Object {
+              "alignSelf": "center",
+            },
+          ]
+        }
+        tintColors={
+          Object {
+            "false": "#000",
+            "true": "#046BF1",
+          }
+        }
+        value={false}
+      />
+    </View>
+    <Text
+      style={
+        Object {
+          "color": "#757575",
+          "fontSize": 13,
+          "margin": 8,
+        }
+      }
+    >
+      I agree to the
+      <Text
+        style={
+          Object {
+            "textDecorationLine": "underline",
+          }
+        }
+      >
+         Terms
+      </Text>
+       and
+      <Text
+        style={
+          Object {
+            "textDecorationLine": "underline",
+          }
+        }
+      >
+        Privacy Policy.
+      </Text>
+      *
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "marginBottom": 5,
+        "width": "90%",
+      }
+    }
+  >
+    <View
+      pointerEvents="auto"
+    >
+      <RNCCheckbox
+        forwardedRef={null}
+        onValueChange={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "height": 32,
+              "width": 32,
+            },
+            Object {
+              "alignSelf": "center",
+            },
+          ]
+        }
+        tintColors={
+          Object {
+            "false": "#000",
+            "true": "#046BF1",
+          }
+        }
+        value={false}
+      />
+    </View>
+    <Text
+      style={
+        Object {
+          "color": "#757575",
+          "fontSize": 13,
+          "margin": 8,
+        }
+      }
+    >
+       
+      Subscribe for select product updates.
+       
+    </Text>
+  </View>
+</View>
+`;
