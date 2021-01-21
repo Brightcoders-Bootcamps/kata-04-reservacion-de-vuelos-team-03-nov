@@ -1,13 +1,16 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import colors from '../utils/Colors';
 import contentText from '../utils/Constants';
 import FormButton from '../components/FormButton';
 import FormInput from '../components/FormInput';
+import {AuthContext} from '../navigation/AuthProvider';
 
 const LogInScreen = ({navigation}) => {
-  const [email, setEmail] = useState();
-  const [password, setPasword] = useState();
+  const [email, setEmail] = useState('');
+  const [password, setPasword] = useState('');
+  const {login} = useContext(AuthContext);
+
   return (
     <View style={styles.container}>
       <View style={styles.ContainerInput}>
@@ -23,13 +26,14 @@ const LogInScreen = ({navigation}) => {
           labelValue={password}
           onChangeText={(userPassword) => setPasword(userPassword)}
           secureTextEntry={true}
+          source={true}
         />
       </View>
       <FormButton
         buttonTitle="Log In"
         backgroundColor={colors.gray}
         color={colors.white}
-        onPress={() => alert('Log In CLicked!')}
+        onPress={() => login(email, password)}
       />
       <View style={styles.login}>
         <Text style={styles.textLogIn}>{contentText.noAccount}</Text>
@@ -63,7 +67,6 @@ const styles = StyleSheet.create({
     color: colors.black,
     fontSize: 15,
   },
-
   goToSignIn: {
     color: colors.blue,
     fontSize: 16,

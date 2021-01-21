@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Text,
-  TouchableOpacity,
-  Image,
-  Button,
-  View,
-  StyleSheet,
-} from 'react-native';
+import {Text, TouchableOpacity, Image, View, StyleSheet} from 'react-native';
 import {windowHeight, windowWith} from '../utils/Dimensions';
 
 const GoogleButton = ({buttonTitle, backgroundColor, color, ...rest}) => {

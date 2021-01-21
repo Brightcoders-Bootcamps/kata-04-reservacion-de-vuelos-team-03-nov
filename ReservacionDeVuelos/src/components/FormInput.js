@@ -1,17 +1,10 @@
 import React from 'react';
-import {
-  View,
-  TextInput,
-  StyleSheet,
-  Image,
-  Pressable,
-  TouchableOpacity,
-} from 'react-native';
+import {View, TextInput, StyleSheet, TouchableOpacity} from 'react-native';
 import {windowHeight, windowWith} from '../utils/Dimensions';
 import colors from '../utils/Colors';
+import IconEye from 'react-native-vector-icons/Entypo';
 
-const FormInput = ({placeholderText, labelValue, secureTextEntry, source, ...rest}) => {
-  let ruta = source;
+const FormInput = ({ placeholderText, labelValue, secureTextEntry, source, ...rest}) => {
   return (
     <View style={styles.Container}>
       <View style={styles.inputContainer}>
@@ -20,14 +13,15 @@ const FormInput = ({placeholderText, labelValue, secureTextEntry, source, ...res
           style={styles.input}
           placeholder={placeholderText}
           secureTextEntry={secureTextEntry}
+          {...rest}
         />
       </View>
       <View style={styles.containerIconEye}>
-        {ruta &&
+        {source && (
           <TouchableOpacity style={styles.viewIconEye}>
-            <Image style={styles.iconEye} source={ruta} />
+            <IconEye name="eye" style={styles.iconEye} />
           </TouchableOpacity>
-        }
+        )}
       </View>
     </View>
   );
@@ -66,13 +60,13 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   viewIconEye: {
-    width: '50%',
+    width: '70%',
     justifyContent: 'center',
     alignItems: 'center',
   },
   iconEye: {
-    height: 30,
-    width: 30,
+    fontSize: 35,
+    color: colors.gray,
   },
 });
 
