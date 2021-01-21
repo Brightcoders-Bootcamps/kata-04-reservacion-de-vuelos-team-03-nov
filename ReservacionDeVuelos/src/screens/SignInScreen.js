@@ -13,7 +13,7 @@ const SignInScreen = ({navigation}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPasword] = useState('');
-  const {register} = useContext(AuthContext);
+  const {register, googleLogIn} = useContext(AuthContext);
 
   return (
     <View style={styles.container}>
@@ -61,7 +61,7 @@ const SignInScreen = ({navigation}) => {
 
       <GoogleButton
         buttonTitle={contentText.signUpGoogle}
-        onPress={() => alert('Sign Up with Google')}
+        onPress={() => googleLogIn()}
         backgroundColor={colors.gray}
         color={colors.white}
       />
