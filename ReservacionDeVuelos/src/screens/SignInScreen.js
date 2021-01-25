@@ -7,7 +7,6 @@ import FormInput from '../components/FormInput';
 import {AuthContext} from '../navigation/AuthProvider';
 import GoogleButton from '../components/GoogleButton';
 import Checkbox from '../components/Checkbox';
-//import eye from '../img/ojo.png';
 
 const SignInScreen = ({navigation}) => {
   const [name, setName] = useState('');

@@ -4,7 +4,13 @@ import {windowHeight, windowWith} from '../utils/Dimensions';
 import colors from '../utils/Colors';
 import IconEye from 'react-native-vector-icons/Entypo';
 
-const FormInput = ({ placeholderText, labelValue, secureTextEntry, source, ...rest}) => {
+const FormInput = ({
+  placeholderText,
+  labelValue,
+  secureTextEntry,
+  source,
+  ...rest
+}) => {
   return (
     <View style={styles.Container}>
       <View style={styles.inputContainer}>
