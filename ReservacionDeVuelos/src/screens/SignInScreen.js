@@ -1,40 +1,45 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import colors from '../utils/Colors';
 import contentText from '../utils/Constants';
 import FormButton from '../components/FormButton';
 import FormInput from '../components/FormInput';
+import {AuthContext} from '../navigation/AuthProvider';
 import GoogleButton from '../components/GoogleButton';
 import Checkbox from '../components/Checkbox';
-import eye from '../img/ojo.png';
 
 const SignInScreen = ({navigation}) => {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPasword] = useState();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPasword] = useState('');
+  const {register, googleLogIn} = useContext(AuthContext);
+
   return (
     <View style={styles.container}>
       <View style={styles.ContainerInput}>
         <Text style={styles.title}> {contentText.signUpTitle} </Text>
         <Text style={styles.formInputtext}> {contentText.firstName} </Text>
+
         <FormInput
           labelValue={name}
           onChangeText={(userName) => setName(userName)}
           secureTextEntry={false}
         />
         <Text style={styles.formInputtext}>{contentText.email} </Text>
+
         <FormInput
           labelValue={email}
           onChangeText={(userEmail) => setEmail(userEmail)}
           secureTextEntry={false}
         />
+
         <Text style={styles.formInputtext}> {contentText.password} </Text>
 
         <FormInput
           labelValue={password}
           onChangeText={(userPassword) => setPasword(userPassword)}
           secureTextEntry={true}
-          source={eye}
+          source={true}
         />
       </View>
 
@@ -46,7 +51,7 @@ const SignInScreen = ({navigation}) => {
 
       <FormButton
         buttonTitle={contentText.signUpTitle}
-        onPress={() => alert('Sign In clicked!')}
+        onPress={() => register(email, password)}
         backgroundColor={colors.gray}
         color={colors.white}
       />
@@ -55,7 +60,7 @@ const SignInScreen = ({navigation}) => {
 
       <GoogleButton
         buttonTitle={contentText.signUpGoogle}
-        onPress={() => alert('Sign Up with Google')}
+        onPress={() => googleLogIn()}
         backgroundColor={colors.gray}
         color={colors.white}
       />

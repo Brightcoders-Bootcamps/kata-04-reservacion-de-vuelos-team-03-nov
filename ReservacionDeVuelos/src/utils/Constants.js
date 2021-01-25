@@ -11,4 +11,5 @@ export default contentText = {
   password: 'Password *',
   createHere: 'Create here',
   subscribe: 'Subscribe for select product updates.',
+  myFlightsTitle: 'My flights',
 };

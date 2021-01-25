@@ -5,7 +5,7 @@ import CheckBox from '@react-native-community/checkbox';
 import contentText from '../utils/Constants';
 
 function CheckBoxComponent() {
-  const [AgreeTermsSelected, setAgreeTermsSelected] = useState(false);
+  const [AgreeTermsSelected, setAgreeTermsSelected] = useState(true);
   const [SuscribeSelected, setSuscribeSelected] = useState(false);
   return (
     <View style={styles.container}>
@@ -19,7 +19,9 @@ function CheckBoxComponent() {
         <Text style={styles.labelCheckBox}>
           I agree to the
           <Text style={{textDecorationLine: 'underline'}}> Terms</Text> and
-          <Text style={{textDecorationLine: 'underline'}}> Privacy Policy.
+          <Text style={{textDecorationLine: 'underline'}}>
+            {' '}
+            Privacy Policy.
           </Text>
           *
         </Text>
