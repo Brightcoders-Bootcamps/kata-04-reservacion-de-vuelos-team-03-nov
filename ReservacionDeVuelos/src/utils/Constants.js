@@ -12,4 +12,6 @@ export default contentText = {
   createHere: 'Create here',
   subscribe: 'Subscribe for select product updates.',
   myFlightsTitle: 'My flights',
+  whereAreYou: 'Where are you now?',
+  whereWillYou: 'Where will you be flying to?'
 };

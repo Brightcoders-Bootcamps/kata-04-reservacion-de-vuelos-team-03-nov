@@ -7,7 +7,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import IconPlus from 'react-native-vector-icons/AntDesign';
 import contentText from './../utils/Constants';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const {user, logout} = useContext(AuthContext);
   return (
     <View style={styles.container}>
@@ -22,7 +22,11 @@ const HomeScreen = () => {
           color={colors.white}
         />
         <TouchableOpacity>
-          <IconPlus name="pluscircle" style={styles.plusIcon} />
+          <IconPlus 
+          name="pluscircle" 
+          style={styles.plusIcon} 
+          onPress={() => navigation.navigate('WhereAreYou')}
+          />
         </TouchableOpacity>
       </View>
     </View>
@@ -56,7 +60,7 @@ const styles = StyleSheet.create({
   plusIcon: {
     marginTop: 20,
     fontSize: 50,
-    color: colors.blue,
+    color: colors.blue
   },
 });
 
