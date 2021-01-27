@@ -5,7 +5,7 @@ import colors from '../utils/Colors';
 import {Calendar, CalendarList} from 'react-native-calendars'
 
 
-const Calendar= () => {
+const CalendarComponent= () => {
   return (
     <Calendar 
     theme={{
@@ -43,4 +43,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Calendar;
+export default CalendarComponent;
