@@ -4,9 +4,10 @@ import FormButton from '../../components/FormButton';
 import contentText from './../../utils/Constants';
 import Calendar from './../../components/Calendar';
 import IconBack from 'react-native-vector-icons/Ionicons';
+
 const TravelDate = ({navigation}) => {
   return (
-    <>
+    <View style={styles.container}>
       <TouchableOpacity>
         <IconBack
           name="chevron-back"
@@ -14,17 +15,16 @@ const TravelDate = ({navigation}) => {
           onPress={() => navigation.navigate('WhereWillYou')}
         />
       </TouchableOpacity>
+      <Text style={styles.title}>{contentText.date}</Text>
+      <Calendar />
 
-      <View style={styles.container}>
-        <Text style={styles.title}>{contentText.date}</Text>
-        <Calendar />
-        <FormButton
-          buttonTitle="Next"
-          backgroundColor={colors.gray}
-          color={colors.white}
-        />
-      </View>
-    </>
+      <FormButton
+        buttonTitle="Next"
+        backgroundColor={colors.gray}
+        color={colors.white}
+        onPress={() => navigation.navigate('HowManyPassengers')}
+      />
+    </View>
   );
 };
 
@@ -49,6 +49,6 @@ const styles = StyleSheet.create({
     marginTop: 5,
     fontSize: 48,
     color: colors.blue,
-    backgroundColor: colors.white,
+    marginRight: 300,
   },
 });
