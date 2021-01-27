@@ -13,5 +13,6 @@ export default contentText = {
   subscribe: 'Subscribe for select product updates.',
   myFlightsTitle: 'My flights',
   whereAreYou: 'Where are you now?',
-  whereWillYou: 'Where will you be flying to?'
+  whereWillYou: 'Where will you be flying to?',
+  date:'Select Date ',
 };

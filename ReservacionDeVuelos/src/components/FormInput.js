@@ -16,16 +16,16 @@ const FormInput = ({
       <View style={styles.inputContainer}>
         <TextInput
           value={labelValue}
-          style={styles.input}
+          style={[styles.errorInput, labelValue && styles.input]}
           placeholder={placeholderText}
           secureTextEntry={secureTextEntry}
           {...rest}
         />
       </View>
-      <View style={styles.containerIconEye}>
+      <View style={[styles.containerIconError, labelValue && styles.containerIconEye]}>
         {source && (
           <TouchableOpacity style={styles.viewIconEye}>
-            <IconEye name="eye" style={styles.iconEye} />
+            <IconEye name="eye" style={[styles.iconEyeError, labelValue && styles.iconEye]} />
           </TouchableOpacity>
         )}
       </View>
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     width: '100%',
     fontSize: 16,
     color: colors.black,
-    borderColor: colors.black,
+    borderColor: colors.blue,
     borderLeftWidth: 1,
     borderTopWidth: 1,
     borderBottomWidth: 1,
@@ -64,6 +64,8 @@ const styles = StyleSheet.create({
     borderRightWidth: 1,
     borderTopWidth: 1,
     borderBottomWidth: 1,
+    borderColor:colors.blue,
+
   },
   viewIconEye: {
     width: '70%',
@@ -72,7 +74,31 @@ const styles = StyleSheet.create({
   },
   iconEye: {
     fontSize: 35,
+    color: colors.blue,
+  },
+  iconEyeError:{
+    fontSize: 35,
     color: colors.gray,
+  },
+  errorInput:{
+    height: windowHeight / 15,
+    marginBottom: 2,
+    width: '100%',
+    fontSize: 16,
+    color: colors.black,
+    borderLeftWidth: 1,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderColor:colors.black,
+  },
+  containerIconError: {
+    justifyContent: 'center',
+    width: '15%',
+    height: windowHeight / 15,
+    borderRightWidth: 1,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderColor:colors.black,
   },
 });
 

@@ -4,7 +4,7 @@ import FormButton from '../../components/FormButton';
 import contentText from './../../utils/Constants';
 import BookingInput from './../../components/BookingInput';
 
-const whereWillYou = () => {
+const whereWillYou = ({navigation}) => {
     return(
         <View style={styles.container}>
             <Text style={styles.title}>{contentText.whereWillYou}</Text>
@@ -15,6 +15,7 @@ const whereWillYou = () => {
              buttonTitle="Next"
              backgroundColor={colors.gray}
              color={colors.white}
+             onPress={() => navigation.navigate('TravelDate')}
             />
         </View>
     )

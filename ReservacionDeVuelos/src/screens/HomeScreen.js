@@ -6,21 +6,27 @@ import colors from '../utils/Colors';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconPlus from 'react-native-vector-icons/AntDesign';
 import contentText from './../utils/Constants';
+import IconLogout from 'react-native-vector-icons/MaterialCommunityIcons';
+
 
 const HomeScreen = ({navigation}) => {
   const {user, logout} = useContext(AuthContext);
   return (
     <View style={styles.container}>
+      <View style={{display:'flex',flexDirection:'row',justifyContent:'space-between' }}>
       <Text style={styles.title}> {contentText.myFlightsTitle}</Text>
+      <TouchableOpacity>
+          <IconLogout 
+          name="logout" 
+          style={styles.LogoutIcon} 
+          onPress={() => logout()}
+          />
+        </TouchableOpacity>
+        </View>
       <View style={styles.flightsContainer}>
         <Text style={styles.text}>{user.email}</Text>
         <Icon name="airplane" style={styles.airplaneIcon} />
-        <FormButton
-          buttonTitle="Logout"
-          onPress={() => logout()}
-          backgroundColor={colors.gray}
-          color={colors.white}
-        />
+      
         <TouchableOpacity>
           <IconPlus 
           name="pluscircle" 
@@ -62,6 +68,11 @@ const styles = StyleSheet.create({
     fontSize: 50,
     color: colors.blue
   },
+  LogoutIcon:{
+  marginTop: 5,
+  fontSize: 45,
+  color: colors.blue
+},
 });
 
 export default HomeScreen;

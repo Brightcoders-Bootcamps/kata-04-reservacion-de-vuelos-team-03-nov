@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from '../screens/HomeScreen';
 import WhereAreYou from './../screens/booking/WhereAreYou';
 import WhereWillYou from './../screens/booking/WhereWillYou';
+import TravelDate from './../screens/booking/TravelDate';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,11 @@ const AppStack = () => {
         <Stack.Screen
         name="WhereWillYou"
         component={WhereWillYou}
+        options={{header: () => null}}
+      />
+       <Stack.Screen
+        name="TravelDate"
+        component={TravelDate}
         options={{header: () => null}}
       />
     </Stack.Navigator>
