@@ -5,6 +5,7 @@ import WhereAreYou from './../screens/booking/WhereAreYou';
 import WhereWillYou from './../screens/booking/WhereWillYou';
 import TravelDate from './../screens/booking/TravelDate';
 import HowManyPassengers from '../screens/booking/HowManyPassengers';
+import RequestReceived from '../screens/booking/RequestReceived';
 
 const Stack = createStackNavigator();
 

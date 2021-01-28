@@ -1,17 +1,14 @@
 import React from 'react';
 import {
   View,
-  StyleSheet,
   Text,
+  StyleSheet,
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
 import FormButton from './../../components/FormButton';
 import IconBack from 'react-native-vector-icons/Ionicons';
 import contentText from './../../utils/Constants';
-import { Icon, InlineIcon } from '@iconify/react';
-import caretRightFilled from '@iconify-icons/ant-design/caret-right-filled'
-import caretLeftFIlled from '@iconify-icons/ant-design/caret-left-filled'
 
 const HowManyPassengers = ({navigation}) => {
   return (
@@ -22,14 +19,11 @@ const HowManyPassengers = ({navigation}) => {
           style={styles.backIcon}
           onPress={() => navigation.navigate('TravelDate')}
         />
-
-        <Icon icon={caretRightFilled}/>
-        <Icon icon={caretLeftFIlled}/>
-
+      </TouchableOpacity>
 
       <Text style={styles.title}>{contentText.passengers}</Text>
 
-      <ScrollView style= {styles.passengersNumber} vertical>
+      <ScrollView style= {styles.passengersNumber} >
           <Text>1</Text>
           <Text>2</Text>
           <Text>3</Text>
@@ -41,10 +35,12 @@ const HowManyPassengers = ({navigation}) => {
         buttonTitle="Next"
         backgroundColor={colors.gray}
         color={colors.white}
+        onPress= {() => navigation.navigate('RequestReceived')}
       />
     </View>
   );
 };
+
 
 export default HowManyPassengers;
 
@@ -74,7 +70,5 @@ const styles = StyleSheet.create({
      marginTop: 40,
      fontSize: 48, 
      marginLeft: 20,
-
-
   },
 });

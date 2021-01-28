@@ -18,7 +18,7 @@ const RequestReceived = ({navigation}) => {
              style={styles.backIcon}
              onPress={() => navigation.navigate('HowManyPassengers')}
             />
-          
+          </TouchableOpacity>
           <Text style={styles.title}>{contentText.yourrequest}</Text>
 
              <FormButton
