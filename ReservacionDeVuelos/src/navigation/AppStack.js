@@ -36,6 +36,11 @@ const AppStack = () => {
         component={HowManyPassengers}
         options={{header: () => null}}
       />
+      <Stack.Screen
+        name='RequestReceived'
+        component={RequestReceived}
+        options={{header: () => null}}
+        />
     </Stack.Navigator>
   );
 };
