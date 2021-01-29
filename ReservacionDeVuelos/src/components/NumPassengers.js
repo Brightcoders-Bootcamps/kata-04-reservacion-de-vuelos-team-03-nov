@@ -5,7 +5,7 @@ import colors from '../utils/Colors';
 import IconRight from 'react-native-vector-icons/AntDesign';
 import IconLeft from 'react-native-vector-icons/AntDesign';
 
-const dataCity = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+const dataPassengers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
 const opacities = {
   0: 1,
@@ -77,7 +77,7 @@ const NumPassengers = () => {
           onScrollToIndexFailed={() => {}}
           keyExtractor={(_, index) => index.toString()}
           showsVerticalScrollIndicator={false}
-          data={dataCity}
+          data={dataPassengers}
           scrollAnimation
           onSelected={({item, index}) => handleChange(index)}
           renderItem={(option) => ItemToRender(option, passenger, true)}
@@ -85,7 +85,7 @@ const NumPassengers = () => {
         />
       </View>
       <View>
-        <Text>{`Your selection is ${dataCity[passenger]} Passengers`}</Text>
+        <Text>{`Your selection is ${dataPassengers[passenger]} Passengers`}</Text>
       </View>
     </View>
   );
