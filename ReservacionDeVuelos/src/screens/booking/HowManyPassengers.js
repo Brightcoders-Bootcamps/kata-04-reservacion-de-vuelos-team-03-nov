@@ -9,6 +9,8 @@ import {
 import FormButton from './../../components/FormButton';
 import IconBack from 'react-native-vector-icons/Ionicons';
 import contentText from './../../utils/Constants';
+import Icon from 'react-native-vector-icons/Ionicons';
+import PickerPassenger from './../../components/NumPassengers';
 
 const HowManyPassengers = ({navigation}) => {
   return (
@@ -21,26 +23,36 @@ const HowManyPassengers = ({navigation}) => {
         />
       </TouchableOpacity>
 
-      <Text style={styles.title}>{contentText.passengers}</Text>
+      <View style={{display: 'flex', width: '90%'}}>
+        <View style={styles.mainText}>
+          <View>
+            <Text style={styles.capital}> BEG</Text>
+            <Text style={styles.country}> Serbia </Text>
+          </View>
+          <Icon name="airplane" style={styles.airplaneIcon} />
+          <View style={{alignItems: 'flex-end'}}>
+            <Text style={styles.capital}> AMS</Text>
+            <Text style={styles.country}>Netherlands</Text>
+          </View>
+        </View>
+        <View style={styles.moreDetails}>
+          <Text>January 29,2021 </Text>
+        </View>
+      </View>
 
-      <ScrollView style= {styles.passengersNumber} >
-          <Text>1</Text>
-          <Text>2</Text>
-          <Text>3</Text>
-          <Text>4</Text>
-          <Text>5</Text>
-      </ScrollView>
+      <Text style={styles.title}>{contentText.passengersTitle}</Text>
+
+      <PickerPassenger />
 
       <FormButton
         buttonTitle="Next"
-        backgroundColor={colors.gray}
+        backgroundColor={colors.blue}
         color={colors.white}
-        onPress= {() => navigation.navigate('RequestReceived')}
+        onPress={() => navigation.navigate('RequestReceived')}
       />
     </View>
   );
 };
-
 
 export default HowManyPassengers;
 
@@ -53,12 +65,10 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   title: {
-    fontSize: 35,
+    fontSize: 30,
     fontWeight: 'bold',
-    marginTop: 40,
     marginRight: 80,
     marginLeft: 20,
-    marginBottom: 10,
   },
   backIcon: {
     marginTop: 5,
@@ -66,9 +76,36 @@ const styles = StyleSheet.create({
     color: colors.blue,
     marginRight: 300,
   },
-  passengersNumber: {
-     marginTop: 40,
-     fontSize: 48, 
-     marginLeft: 20,
+  mainText: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderBottomColor: colors.darkGray,
+    borderBottomWidth: 1,
+
+    paddingBottom: 8,
+  },
+  airplaneIcon: {
+    fontSize: 25,
+    color: colors.blue,
+    marginRight: 35,
+  },
+  moreDetails: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingTop: 12,
+    paddingBottom: 12,
+  },
+  capital: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    marginBottom: 10,
+  },
+  country: {
+    fontSize: 14,
+    color: colors.darkGray,
   },
 });

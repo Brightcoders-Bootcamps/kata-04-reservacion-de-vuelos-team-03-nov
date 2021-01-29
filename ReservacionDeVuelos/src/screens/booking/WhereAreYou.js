@@ -16,6 +16,7 @@ const WhereAreYou = ({navigation}) => {
           onPress={() => navigation.navigate('Home')}
         />
       </TouchableOpacity>
+
       <Text style={styles.title}>{contentText.whereAreYou}</Text>
       <BookingInput placeHolderText="Select location" />
       <FormButton
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   title: {
-    fontSize: 35,
+    fontSize: 30,
     fontWeight: 'bold',
     marginTop: 50,
     marginRight: 35,
