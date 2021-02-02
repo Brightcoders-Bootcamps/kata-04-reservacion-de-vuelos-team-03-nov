@@ -80,6 +80,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 5,
     backgroundColor: colors.white,
+    paddingBottom:42,
+    paddingTop:8,
   },
   title: {
     fontSize: 30,
@@ -91,7 +93,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     fontSize: 48,
     color: colors.blue,
-    marginRight: 300,
+    marginRight: 320,
   },
   mainText: {
     display: 'flex',

@@ -82,17 +82,16 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: 'bold',
-    marginTop: 40,
+    marginTop: 5,
     marginRight: 80,
-    marginBottom: 10,
+    marginBottom: 5,
   },
   backIcon: {
     marginTop: 5,
     fontSize: 48,
     color: colors.blue,
-    marginRight: 300,
+    marginRight: 320,
   },
-
   mainText: {
     display: 'flex',
     flexDirection: 'row',

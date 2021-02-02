@@ -27,7 +27,7 @@ const whereWillYou = (props) => {
         <IconBack
           name="chevron-back"
           style={styles.backIcon}
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => navigation.navigate('WhereAreYou')}
         />
       </TouchableOpacity>
 
@@ -76,14 +76,14 @@ const styles = StyleSheet.create({
     marginTop: 40,
     marginRight: 35,
     marginLeft: 20,
-    marginBottom: 10,
+    marginBottom: 120,
   },
   backIcon: {
     marginTop: 5,
     fontSize: 48,
     color: colors.blue,
     backgroundColor: colors.white,
-    marginRight: 300,
+    marginRight: 320,
   },
   mainText: {
     display: 'flex',

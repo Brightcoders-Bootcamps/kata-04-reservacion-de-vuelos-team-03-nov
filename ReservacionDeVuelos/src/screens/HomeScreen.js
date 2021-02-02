@@ -113,7 +113,7 @@ const HomeScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.white,
+    backgroundColor: colors.white
   },
   headContainer: {
     display: 'flex',
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
     fontSize: 70,
     color: colors.blue,
     alignSelf: 'center',
-    top: 650,
+    top: 650
   },
 });
 
