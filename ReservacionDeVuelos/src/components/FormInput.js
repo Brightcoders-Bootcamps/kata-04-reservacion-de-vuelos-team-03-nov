@@ -22,10 +22,17 @@ const FormInput = ({
           {...rest}
         />
       </View>
-      <View style={[styles.containerIconError, labelValue && styles.containerIconEye]}>
+      <View
+        style={[
+          styles.containerIconError,
+          labelValue && styles.containerIconEye,
+        ]}>
         {source && (
           <TouchableOpacity style={styles.viewIconEye}>
-            <IconEye name="eye" style={[styles.iconEyeError, labelValue && styles.iconEye]} />
+            <IconEye
+              name="eye"
+              style={[styles.iconEyeError, labelValue && styles.iconEye]}
+            />
           </TouchableOpacity>
         )}
       </View>
@@ -64,8 +71,7 @@ const styles = StyleSheet.create({
     borderRightWidth: 1,
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    borderColor:colors.blue,
-
+    borderColor: colors.blue,
   },
   viewIconEye: {
     width: '70%',
@@ -76,11 +82,11 @@ const styles = StyleSheet.create({
     fontSize: 35,
     color: colors.blue,
   },
-  iconEyeError:{
+  iconEyeError: {
     fontSize: 35,
     color: colors.gray,
   },
-  errorInput:{
+  errorInput: {
     height: windowHeight / 15,
     marginBottom: 2,
     width: '100%',
@@ -89,7 +95,7 @@ const styles = StyleSheet.create({
     borderLeftWidth: 1,
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    borderColor:colors.black,
+    borderColor: colors.black,
   },
   containerIconError: {
     justifyContent: 'center',
@@ -98,7 +104,7 @@ const styles = StyleSheet.create({
     borderRightWidth: 1,
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    borderColor:colors.black,
+    borderColor: colors.black,
   },
 });
 
