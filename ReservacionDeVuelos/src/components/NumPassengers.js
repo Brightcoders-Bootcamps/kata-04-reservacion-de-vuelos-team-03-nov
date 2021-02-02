@@ -94,7 +94,7 @@ const NumPassengers = () => {
 const styles = StyleSheet.create({
   container: {
     paddingTop: 20,
-    paddingBottom: 30,
+    paddingBottom: 10,
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-evenly',
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
   },
   wrapperVertical: {
     width: 250,
-    height: 350,
+    height: 250,
     justifyContent: 'center',
     alignItems: 'center',
     margin: 'auto',

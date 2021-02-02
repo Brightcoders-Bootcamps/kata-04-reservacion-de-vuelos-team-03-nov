@@ -16,6 +16,6 @@ export default contentText = {
   whereWillYou: 'Where will you be flying to?',
   date: 'Select Date ',
   passengersTitle: 'How many passengers?',
-  yourrequest: 'Your request was received',
+  yourrequest: 'Your request was received.',
   passengers: 'Passengers',
 };

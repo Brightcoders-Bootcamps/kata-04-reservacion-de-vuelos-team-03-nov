@@ -61,20 +61,20 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-around',
     alignItems: 'center',
-    padding: 5,
     backgroundColor: colors.white,
+    paddingBottom: 42,
+    paddingTop: 8
   },
   title: {
-    fontSize: 30,
+    fontSize: 35,
     fontWeight: 'bold',
     marginRight: 80,
     marginLeft: 20,
   },
   backIcon: {
-    marginTop: 5,
     fontSize: 48,
     color: colors.blue,
-    marginRight: 300,
+    marginRight: 330,
   },
   mainText: {
     display: 'flex',
@@ -83,8 +83,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderBottomColor: colors.darkGray,
     borderBottomWidth: 1,
-
-    paddingBottom: 8,
+    paddingBottom: 2,
   },
   airplaneIcon: {
     fontSize: 25,

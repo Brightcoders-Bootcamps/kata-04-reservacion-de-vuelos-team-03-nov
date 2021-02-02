@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   },
   textLogIn: {
     fontSize: 16,
-    color: colors.darkGray,
+    color: colors.darkGray
   },
 });
 

@@ -36,22 +36,21 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-around',
     alignItems: 'center',
-    padding: 5,
     backgroundColor: colors.white,
+    paddingBottom: 30
   },
   title: {
-    fontSize: 30,
+    fontSize: 40,
     fontWeight: 'bold',
-    marginTop: 50,
+    marginTop: 40,
     marginRight: 35,
     marginLeft: 20,
-    marginBottom: 10,
+    marginBottom: 120
   },
   backIcon: {
-    marginTop: 5,
     fontSize: 48,
     color: colors.blue,
     backgroundColor: colors.white,
-    marginRight: 300,
+    marginRight: 330
   },
 });

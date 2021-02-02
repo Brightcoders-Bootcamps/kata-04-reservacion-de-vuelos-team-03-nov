@@ -8,14 +8,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 const RequestReceived = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
-        <IconBack
-          name="chevron-back"
-          style={styles.backIcon}
-          onPress={() => navigation.navigate('HowManyPassengers')}
-        />
-      </TouchableOpacity>
-
       <View style={{display: 'flex', width: '90%'}}>
         <View style={styles.mainText}>
           <View>
@@ -51,24 +43,17 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-around',
     alignItems: 'center',
-    padding: 5,
     backgroundColor: colors.white,
+    paddingTop: 120
   },
   title: {
-    fontSize: 30,
+    fontSize: 38,
     fontWeight: 'bold',
     marginRight: 80,
     marginLeft: 5,
     marginTop: 20,
-    marginBottom: 80,
+    marginBottom: 150,
   },
-  backIcon: {
-    marginTop: 5,
-    fontSize: 48,
-    color: colors.blue,
-    marginRight: 300,
-  },
-
   mainText: {
     display: 'flex',
     flexDirection: 'row',

@@ -51,21 +51,20 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-around',
     alignItems: 'center',
-    padding: 5,
     backgroundColor: colors.white,
+    paddingBottom: 30
   },
   title: {
-    fontSize: 30,
+    fontSize: 38,
     fontWeight: 'bold',
-    marginTop: 40,
+    marginTop: 5,
     marginRight: 80,
-    marginBottom: 10,
+    marginBottom: 5
   },
   backIcon: {
-    marginTop: 5,
     fontSize: 48,
     color: colors.blue,
-    marginRight: 300,
+    marginRight: 330,
   },
 
   mainText: {

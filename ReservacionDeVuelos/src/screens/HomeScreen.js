@@ -1,6 +1,7 @@
 import React, {useContext, useState} from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import {AuthContext} from '../navigation/AuthProvider';
+import {windowWith, windowHeight} from './../utils/Dimensions';
 import colors from '../utils/Colors';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconPlus from 'react-native-vector-icons/AntDesign';
@@ -112,6 +113,7 @@ const HomeScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: colors.white
   },
   headContainer: {
     display: 'flex',
@@ -171,10 +173,10 @@ const styles = StyleSheet.create({
   },
   plusIcon: {
     position: 'absolute',
-    fontSize: 75,
+    fontSize: 70,
     color: colors.blue,
-    marginTop: 650,
-    marginLeft: 140,
+    alignSelf: 'center',
+    top: 650
   },
 });
 
