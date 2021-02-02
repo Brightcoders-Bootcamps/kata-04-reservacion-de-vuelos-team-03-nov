@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import FormButton from '../../components/FormButton';
 import contentText from './../../utils/Constants';
@@ -7,14 +7,27 @@ import IconBack from 'react-native-vector-icons/Ionicons';
 import colors from './../../utils/Colors';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const whereWillYou = ({navigation}) => {
+const whereWillYou = (props) => {
+  const {navigation, route} = props;
+  const {origin} = route.params.formData;
+  const [formData, setFormData] = useState({
+    origin: origin,
+    destiny: '',
+  });
+
+  const onRegister = () => {
+    navigation.navigate('TravelDate', {
+      formData,
+    });
+  };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity>
         <IconBack
           name="chevron-back"
           style={styles.backIcon}
-          onPress={() => navigation.navigate('WhereAreYou')}
+          onPress={() => navigation.navigate('Home')}
         />
       </TouchableOpacity>
 
@@ -22,7 +35,7 @@ const whereWillYou = ({navigation}) => {
         <View style={styles.mainText}>
           <View>
             <Text style={styles.capital}> BEG </Text>
-            <Text style={styles.country}> Serbia</Text>
+            <Text style={styles.country}> {formData.origin}</Text>
           </View>
           <Icon name="airplane" style={styles.airplaneIcon} />
           <View style={{alignItems: 'flex-end'}}></View>
@@ -30,12 +43,18 @@ const whereWillYou = ({navigation}) => {
       </View>
 
       <Text style={styles.title}>{contentText.whereWillYou}</Text>
-      <BookingInput placeHolderText="Select location" />
+      <BookingInput
+        placeHolderText="Select location"
+        onChange={(e) =>
+          setFormData({...formData, destiny: e.nativeEvent.text})
+        }
+      />
+
       <FormButton
         buttonTitle="Next"
-        backgroundColor={colors.gray}
+        backgroundColor={formData.destiny ? colors.blue : colors.gray}
         color={colors.white}
-        onPress={() => navigation.navigate('TravelDate')}
+        onPress={onRegister}
       />
     </View>
   );
@@ -48,23 +67,23 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-around',
     alignItems: 'center',
+    padding: 5,
     backgroundColor: colors.white,
-    paddingBottom: 40,
-    paddingTop: 10
   },
   title: {
-    fontSize: 40,
+    fontSize: 30,
     fontWeight: 'bold',
     marginTop: 40,
     marginRight: 35,
     marginLeft: 20,
-    marginBottom: 120
+    marginBottom: 10,
   },
   backIcon: {
+    marginTop: 5,
     fontSize: 48,
     color: colors.blue,
     backgroundColor: colors.white,
-    marginRight: 330
+    marginRight: 300,
   },
   mainText: {
     display: 'flex',
@@ -73,20 +92,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderBottomColor: colors.gray,
     borderBottomWidth: 1,
-    paddingBottom: 8
+    paddingBottom: 8,
   },
   airplaneIcon: {
     fontSize: 25,
     color: colors.blue,
-    marginRight: 55
+    marginRight: 55,
   },
   capital: {
     fontWeight: 'bold',
     fontSize: 20,
-    marginBottom: 10
+    marginBottom: 10,
   },
   country: {
     fontSize: 14,
-    color: colors.darkGray
+    color: colors.darkGray,
   },
 });

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import FormButton from '../../components/FormButton';
 import contentText from './../../utils/Constants';
@@ -7,6 +7,16 @@ import IconBack from 'react-native-vector-icons/Ionicons';
 import colors from './../../utils/Colors';
 
 const WhereAreYou = ({navigation}) => {
+  const [formData, setFormData] = useState({
+    origin: '',
+  });
+
+  const onRegister = () => {
+    navigation.navigate('WhereWillYou', {
+      formData,
+    });
+  };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity>
@@ -18,12 +28,15 @@ const WhereAreYou = ({navigation}) => {
       </TouchableOpacity>
 
       <Text style={styles.title}>{contentText.whereAreYou}</Text>
-      <BookingInput placeHolderText="Select location" />
+      <BookingInput
+        placeHolderText="Select location"
+        onChange={(e) => setFormData({...formData, origin: e.nativeEvent.text})}
+      />
       <FormButton
         buttonTitle="Next"
-        backgroundColor={colors.gray}
+        backgroundColor={formData.origin ? colors.blue : colors.gray}
         color={colors.white}
-        onPress={() => navigation.navigate('WhereWillYou')}
+        onPress={onRegister}
       />
     </View>
   );
@@ -36,21 +49,22 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-around',
     alignItems: 'center',
+    padding: 5,
     backgroundColor: colors.white,
-    paddingBottom: 30
   },
   title: {
-    fontSize: 40,
+    fontSize: 30,
     fontWeight: 'bold',
-    marginTop: 40,
+    marginTop: 50,
     marginRight: 35,
     marginLeft: 20,
-    marginBottom: 120
+    marginBottom: 10,
   },
   backIcon: {
+    marginTop: 5,
     fontSize: 48,
     color: colors.blue,
     backgroundColor: colors.white,
-    marginRight: 330
+    marginRight: 300,
   },
 });

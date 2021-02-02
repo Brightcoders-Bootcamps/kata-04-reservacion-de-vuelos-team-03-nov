@@ -1,28 +1,43 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import FormButton from './../../components/FormButton';
 import IconBack from 'react-native-vector-icons/Ionicons';
 import contentText from './../../utils/Constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const RequestReceived = ({navigation}) => {
+const RequestReceived = (props) => {
+  const {navigation, route} = props;
+  const {origin, destiny, date, passengers} = route.params.formData;
+
+  const [formData, setFormData] = useState({
+    origin: origin,
+    destiny: destiny,
+    date: date,
+    passengers: passengers,
+  });
+
+  const onRegister = () => {
+    navigation.navigate('Home', {});
+    console.log(formData);
+  };
+
   return (
     <View style={styles.container}>
       <View style={{display: 'flex', width: '90%'}}>
         <View style={styles.mainText}>
           <View>
             <Text style={styles.capital}> BEG </Text>
-            <Text style={styles.country}> Serbia</Text>
+            <Text style={styles.country}> {formData.origin}</Text>
           </View>
           <Icon name="airplane" style={styles.airplaneIcon} />
           <View style={{alignItems: 'flex-end'}}>
             <Text style={styles.capital}> AMS </Text>
-            <Text style={styles.country}>Netherlands</Text>
+            <Text style={styles.country}>{formData.destiny}</Text>
           </View>
         </View>
         <View style={styles.moreDetails}>
-          <Text>January 29,2021 </Text>
-          <Text> 2 passengers </Text>
+          <Text>{formData.date} </Text>
+          <Text> {formData.passengers} passengers </Text>
         </View>
         <Text style={styles.title}>{contentText.yourrequest}</Text>
       </View>
@@ -31,6 +46,7 @@ const RequestReceived = ({navigation}) => {
         buttonTitle="Finish"
         backgroundColor={colors.blue}
         color={colors.white}
+        onPress={onRegister}
       />
     </View>
   );
@@ -44,10 +60,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: colors.white,
-    paddingTop: 120
+    paddingTop: 120,
   },
   title: {
-    fontSize: 38,
+    fontSize: 30,
     fontWeight: 'bold',
     marginRight: 80,
     marginLeft: 5,

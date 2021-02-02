@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -12,7 +12,22 @@ import contentText from './../../utils/Constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import PickerPassenger from './../../components/NumPassengers';
 
-const HowManyPassengers = ({navigation}) => {
+const HowManyPassengers = (props) => {
+  const {navigation, route} = props;
+  const {origin, destiny, date} = route.params.formData;
+
+  const [formData, setFormData] = useState({
+    origin: origin,
+    destiny: destiny,
+    date: date,
+    passengers: '2',
+  });
+  const onRegister = () => {
+    navigation.navigate('RequestReceived', {
+      formData,
+    });
+  };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity>
@@ -27,28 +42,30 @@ const HowManyPassengers = ({navigation}) => {
         <View style={styles.mainText}>
           <View>
             <Text style={styles.capital}> BEG</Text>
-            <Text style={styles.country}> Serbia </Text>
+            <Text style={styles.country}> {formData.origin} </Text>
           </View>
           <Icon name="airplane" style={styles.airplaneIcon} />
           <View style={{alignItems: 'flex-end'}}>
             <Text style={styles.capital}> AMS</Text>
-            <Text style={styles.country}>Netherlands</Text>
+            <Text style={styles.country}>{formData.destiny}</Text>
           </View>
         </View>
         <View style={styles.moreDetails}>
-          <Text>January 29,2021 </Text>
+          <Text>{formData.date}</Text>
         </View>
       </View>
 
       <Text style={styles.title}>{contentText.passengersTitle}</Text>
 
-      <PickerPassenger />
+      <PickerPassenger
+        value={(e) => setFormData({...formData, passengers: e})}
+      />
 
       <FormButton
         buttonTitle="Next"
         backgroundColor={colors.blue}
         color={colors.white}
-        onPress={() => navigation.navigate('RequestReceived')}
+        onPress={onRegister}
       />
     </View>
   );
@@ -61,20 +78,20 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-around',
     alignItems: 'center',
+    padding: 5,
     backgroundColor: colors.white,
-    paddingBottom: 42,
-    paddingTop: 8
   },
   title: {
-    fontSize: 35,
+    fontSize: 30,
     fontWeight: 'bold',
     marginRight: 80,
     marginLeft: 20,
   },
   backIcon: {
+    marginTop: 5,
     fontSize: 48,
     color: colors.blue,
-    marginRight: 330,
+    marginRight: 300,
   },
   mainText: {
     display: 'flex',
@@ -83,7 +100,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderBottomColor: colors.darkGray,
     borderBottomWidth: 1,
-    paddingBottom: 2,
+    paddingBottom: 8,
   },
   airplaneIcon: {
     fontSize: 25,
