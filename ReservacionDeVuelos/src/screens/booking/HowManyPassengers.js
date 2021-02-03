@@ -11,6 +11,7 @@ import IconBack from 'react-native-vector-icons/Ionicons';
 import contentText from './../../utils/Constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import PickerPassenger from './../../components/NumPassengers';
+import firestore from '@react-native-firebase/firestore';
 
 const HowManyPassengers = (props) => {
   const {navigation, route} = props;
@@ -22,7 +23,14 @@ const HowManyPassengers = (props) => {
     date: date,
     passengers: '2',
   });
-  const onRegister = () => {
+
+  const onRegister = async () => {
+    await firestore().collection('userData').add({
+      origin: formData.origin,
+      destiny: formData.destiny,
+      date: formData.date,
+      passengers: formData.passengers,
+    });
     navigation.navigate('RequestReceived', {
       formData,
     });
@@ -80,11 +88,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 5,
     backgroundColor: colors.white,
-    paddingBottom:42,
-    paddingTop:8,
+    paddingBottom: 42,
+    paddingTop: 8,
   },
   title: {
-    fontSize: 30,
+    fontSize: 38,
     fontWeight: 'bold',
     marginRight: 80,
     marginLeft: 20,

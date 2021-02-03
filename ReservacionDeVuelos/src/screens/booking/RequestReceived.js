@@ -18,7 +18,6 @@ const RequestReceived = (props) => {
 
   const onRegister = () => {
     navigation.navigate('Home', {});
-    console.log(formData);
   };
 
   return (
@@ -63,7 +62,7 @@ const styles = StyleSheet.create({
     paddingTop: 120,
   },
   title: {
-    fontSize: 30,
+    fontSize: 38,
     fontWeight: 'bold',
     marginRight: 80,
     marginLeft: 5,

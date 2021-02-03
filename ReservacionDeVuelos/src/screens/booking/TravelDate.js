@@ -61,7 +61,7 @@ const TravelDate = (props) => {
 
       <FormButton
         buttonTitle="Next"
-        backgroundColor={colors.blue}
+        backgroundColor={formData.date ? colors.blue : colors.gray}
         color={colors.white}
         onPress={onRegister}
       />
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   title: {
-    fontSize: 30,
+    fontSize: 38,
     fontWeight: 'bold',
     marginTop: 5,
     marginRight: 80,
