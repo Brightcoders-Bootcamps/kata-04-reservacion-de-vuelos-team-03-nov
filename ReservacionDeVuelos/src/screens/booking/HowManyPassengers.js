@@ -1,14 +1,9 @@
-import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  ScrollView,
-} from 'react-native';
+import React, {useContext, useState} from 'react';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import FormButton from './../../components/FormButton';
 import IconBack from 'react-native-vector-icons/Ionicons';
 import contentText from './../../utils/Constants';
+import {AuthContext} from './../../navigation/AuthProvider';
 import Icon from 'react-native-vector-icons/Ionicons';
 import PickerPassenger from './../../components/NumPassengers';
 import firestore from '@react-native-firebase/firestore';
@@ -16,6 +11,7 @@ import firestore from '@react-native-firebase/firestore';
 const HowManyPassengers = (props) => {
   const {navigation, route} = props;
   const {origin, destiny, date} = route.params.formData;
+  const {user} = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
     origin: origin,
@@ -25,7 +21,7 @@ const HowManyPassengers = (props) => {
   });
 
   const onRegister = async () => {
-    await firestore().collection('userData').add({
+    await firestore().collection('userFlightData-'+ user.uid).add({
       origin: formData.origin,
       destiny: formData.destiny,
       date: formData.date,

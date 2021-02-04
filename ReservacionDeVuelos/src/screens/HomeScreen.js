@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState,useEffect} from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import {AuthContext} from '../navigation/AuthProvider';
 import {windowWith, windowHeight} from './../utils/Dimensions';
@@ -7,9 +7,31 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import IconPlus from 'react-native-vector-icons/AntDesign';
 import contentText from './../utils/Constants';
 import IconLogout from 'react-native-vector-icons/MaterialCommunityIcons';
+import firestore from '@react-native-firebase/firestore';
+
 
 const HomeScreen = ({navigation}) => {
   const {user, logout} = useContext(AuthContext);
+/*
+  const [listFlights, setListFlights] = useState([]);
+
+  useEffect(() => {
+        console.log('logeado');
+        console.log(user.uid);
+
+       const trips = firestore()
+        .collection('userFlightData-')
+          .get()
+          .then(function() {
+            console.log("Document successfully written!");
+        })
+        .catch(function(error) {
+            console.error("Error writing document: ", error);
+        });
+        console.log(trips);
+  }, []);
+*/
+
   const [flights, setFlights] = useState([
     {
       key: 1,
@@ -66,6 +88,7 @@ const HomeScreen = ({navigation}) => {
       date: 'September 3, 2020',
     },
   ]);
+ 
   return (
     <View style={styles.container}>
       <View style={styles.headContainer}>
@@ -176,7 +199,7 @@ const styles = StyleSheet.create({
     fontSize: 70,
     color: colors.blue,
     alignSelf: 'center',
-    top: 520,
+    top: 650,
   },
 });
 
