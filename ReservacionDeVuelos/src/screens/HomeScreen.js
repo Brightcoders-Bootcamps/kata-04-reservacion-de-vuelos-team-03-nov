@@ -1,5 +1,5 @@
-import React, {useContext, useState,useEffect} from 'react';
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import React, {useContext, useState, useEffect} from 'react';
+import {View, Text, StyleSheet, ScrollView, Alert} from 'react-native';
 import {AuthContext} from '../navigation/AuthProvider';
 import {windowWith, windowHeight} from './../utils/Dimensions';
 import colors from '../utils/Colors';
@@ -9,86 +9,35 @@ import contentText from './../utils/Constants';
 import IconLogout from 'react-native-vector-icons/MaterialCommunityIcons';
 import firestore from '@react-native-firebase/firestore';
 
-
 const HomeScreen = ({navigation}) => {
   const {user, logout} = useContext(AuthContext);
-/*
-  const [listFlights, setListFlights] = useState([]);
+  const [flights, setFlights] = useState([]);
+  const [loadData, setLoadData] = useState(false);
+
+  const onRegister = () => {
+    navigation.navigate('WhereAreYou');
+    setLoadData(true);
+  };
 
   useEffect(() => {
-        console.log('logeado');
-        console.log(user.uid);
-
-       const trips = firestore()
-        .collection('userFlightData-')
-          .get()
-          .then(function() {
-            console.log("Document successfully written!");
-        })
-        .catch(function(error) {
-            console.error("Error writing document: ", error);
+    firestore()
+      .collection('userFlightData-' + user.uid)
+      .get()
+      .then((e) => {
+        const tripsArray = [];
+        e.forEach((doc) => {
+          const data = doc.data();
+          data.id = doc.id;
+          tripsArray.push(data);
         });
-        console.log(trips);
-  }, []);
-*/
+        setFlights(tripsArray);
+      })
+      .catch(function (error) {
+        Alert.alert('Error Reload Data');
+      });
+    setLoadData(false);
+  }, [loadData]);
 
-  const [flights, setFlights] = useState([
-    {
-      key: 1,
-      countryOrigin: 'Netherlands',
-      capitalOrigin: 'AMS',
-      countryDestiny: 'Serbia',
-      capitalDestiny: 'BEG',
-      passengers: 2,
-      date: 'September 3, 2020',
-    },
-    {
-      key: 2,
-      countryOrigin: 'Netherlands',
-      capitalOrigin: 'AMS',
-      countryDestiny: 'Serbia',
-      capitalDestiny: 'BEG',
-      passengers: 2,
-      date: 'September 3, 2020',
-    },
-    {
-      key: 3,
-      countryOrigin: 'Netherlands',
-      capitalOrigin: 'AMS',
-      countryDestiny: 'Serbia',
-      capitalDestiny: 'BEG',
-      passengers: 2,
-      date: 'September 3, 2020',
-    },
-    {
-      key: 4,
-      countryOrigin: 'Netherlands',
-      capitalOrigin: 'AMS',
-      countryDestiny: 'Serbia',
-      capitalDestiny: 'BEG',
-      passengers: 2,
-      date: 'September 3, 2020',
-    },
-    {
-      key: 5,
-      countryOrigin: 'Netherlands',
-      capitalOrigin: 'AMS',
-      countryDestiny: 'Serbia',
-      capitalDestiny: 'BEG',
-      passengers: 2,
-      date: 'September 3, 2020',
-    },
-    {
-      key: 6,
-      countryOrigin: 'Netherlands',
-      capitalOrigin: 'AMS',
-      countryDestiny: 'Serbia',
-      capitalDestiny: 'BEG',
-      passengers: 2,
-      date: 'September 3, 2020',
-    },
-  ]);
- 
   return (
     <View style={styles.container}>
       <View style={styles.headContainer}>
@@ -105,13 +54,13 @@ const HomeScreen = ({navigation}) => {
             <View key={index} style={styles.flightDetails}>
               <View style={styles.mainText}>
                 <View>
-                  <Text style={styles.capital}> {flight.capitalOrigin}</Text>
-                  <Text style={styles.country}> {flight.countryOrigin}</Text>
+                  <Text style={styles.capital}>BEG</Text>
+                  <Text style={styles.country}> {flight.origin}</Text>
                 </View>
                 <Icon name="airplane" style={styles.airplaneIcon} />
                 <View style={{alignItems: 'flex-end'}}>
-                  <Text style={styles.capital}> {flight.capitalDestiny}</Text>
-                  <Text style={styles.country}> {flight.countryDestiny}</Text>
+                  <Text style={styles.capital}>AMS</Text>
+                  <Text style={styles.country}> {flight.destiny}</Text>
                 </View>
               </View>
               <View style={styles.moreDetails}>
@@ -127,7 +76,7 @@ const HomeScreen = ({navigation}) => {
       <IconPlus
         name="pluscircle"
         style={styles.plusIcon}
-        onPress={() => navigation.navigate('WhereAreYou')}
+        onPress={onRegister}
       />
     </View>
   );
@@ -199,7 +148,7 @@ const styles = StyleSheet.create({
     fontSize: 70,
     color: colors.blue,
     alignSelf: 'center',
-    top: 650,
+    top: 520,
   },
 });
 
