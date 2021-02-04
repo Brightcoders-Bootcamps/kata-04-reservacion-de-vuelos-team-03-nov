@@ -55,7 +55,7 @@ const HowManyPassengers = (props) => {
           </View>
         </View>
         <View style={styles.moreDetails}>
-          <Text>{formData.date}</Text>
+          <Text>{contentText.dateSelected}{formData.date}</Text>
         </View>
       </View>
 
@@ -80,12 +80,11 @@ export default HowManyPassengers;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
     padding: 5,
     backgroundColor: colors.white,
-    paddingBottom: 42,
-    paddingTop: 8,
+    paddingBottom: 50,
   },
   title: {
     fontSize: 38,

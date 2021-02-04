@@ -11,10 +11,18 @@ const WhereAreYou = ({navigation}) => {
     origin: '',
   });
 
+  const [formError, setFormError] = useState({});
+
   const onRegister = () => {
-    navigation.navigate('WhereWillYou', {
-      formData,
-    });
+    let errors = {};
+    if (!formData.origin) {
+      if (!formData.origin) errors.origin = true;
+    } else {
+      navigation.navigate('WhereWillYou', {
+        formData,
+      });
+    }
+    setFormError(errors);
   };
 
   return (
@@ -29,9 +37,13 @@ const WhereAreYou = ({navigation}) => {
 
       <Text style={styles.title}>{contentText.whereAreYou}</Text>
       <BookingInput
+        style={{marginBottom: 150}}
         placeHolderText="Select location"
         onChange={(e) => setFormData({...formData, origin: e.nativeEvent.text})}
       />
+      {formError.origin && (
+        <Text style={styles.titleError}>{contentText.errorLocation}</Text>
+      )}
       <FormButton
         buttonTitle="Next"
         backgroundColor={formData.origin ? colors.blue : colors.gray}
@@ -47,18 +59,16 @@ export default WhereAreYou;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 5,
+    paddingBottom: 50,
     backgroundColor: colors.white,
   },
   title: {
     fontSize: 38,
     fontWeight: 'bold',
-    marginTop: 40,
     marginRight: 35,
     marginLeft: 20,
-    marginBottom: 120,
   },
   backIcon: {
     marginTop: 5,
@@ -66,5 +76,14 @@ const styles = StyleSheet.create({
     color: colors.blue,
     backgroundColor: colors.white,
     marginRight: 320,
+  },
+  titleError: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: colors.red,
+    marginBottom: 150,
+    alignSelf: 'flex-start',
+    marginLeft: 20,
+    marginTop: 35,
   },
 });

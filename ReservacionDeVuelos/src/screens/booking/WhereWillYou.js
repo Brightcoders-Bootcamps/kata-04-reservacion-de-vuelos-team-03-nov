@@ -15,10 +15,18 @@ const whereWillYou = (props) => {
     destiny: '',
   });
 
+  const [formError, setFormError] = useState({});
+
   const onRegister = () => {
-    navigation.navigate('TravelDate', {
-      formData,
-    });
+    let errors = {};
+    if (!formData.destiny) {
+      if (!formData.destiny) errors.destiny = true;
+    } else {
+      navigation.navigate('TravelDate', {
+        formData,
+      });
+    }
+    setFormError(errors);
   };
 
   return (
@@ -50,6 +58,10 @@ const whereWillYou = (props) => {
         }
       />
 
+      {formError.destiny && (
+        <Text style={styles.titleError}>{contentText.errorDestiny}</Text>
+      )}
+
       <FormButton
         buttonTitle="Next"
         backgroundColor={formData.destiny ? colors.blue : colors.gray}
@@ -65,18 +77,18 @@ export default whereWillYou;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 5,
     backgroundColor: colors.white,
+    paddingBottom: 50,
   },
   title: {
     fontSize: 38,
     fontWeight: 'bold',
-    marginTop: 40,
     marginRight: 35,
     marginLeft: 20,
-    marginBottom: 120,
+    marginTop: 25,
+    marginBottom: 25,
   },
   backIcon: {
     marginTop: 5,
@@ -107,5 +119,12 @@ const styles = StyleSheet.create({
   country: {
     fontSize: 14,
     color: colors.darkGray,
+  },
+  titleError: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: colors.red,
+    alignSelf: 'flex-start',
+    marginLeft: 20,
   },
 });

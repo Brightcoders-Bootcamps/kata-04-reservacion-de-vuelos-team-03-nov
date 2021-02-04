@@ -17,10 +17,18 @@ const TravelDate = (props) => {
     date: '',
   });
 
+  const [formError, setFormError] = useState({});
+
   const onRegister = () => {
-    navigation.navigate('HowManyPassengers', {
-      formData,
-    });
+    let errors = {};
+    if (!formData.date) {
+      if (!formData.date) errors.date = true;
+    } else {
+      navigation.navigate('HowManyPassengers', {
+        formData,
+      });
+    }
+    setFormError(errors);
   };
 
   return (
@@ -58,6 +66,9 @@ const TravelDate = (props) => {
           },
         }}
       />
+      {formError.date && (
+        <Text style={styles.titleError}>{contentText.errorDate}</Text>
+      )}
 
       <FormButton
         buttonTitle="Next"
@@ -74,9 +85,9 @@ export default TravelDate;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 5,
+    paddingBottom: 50,
     backgroundColor: colors.white,
   },
   title: {
@@ -115,5 +126,10 @@ const styles = StyleSheet.create({
   country: {
     fontSize: 14,
     color: colors.darkGray,
+  },
+  titleError: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: colors.red,
   },
 });

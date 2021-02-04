@@ -23,8 +23,7 @@ const styles = StyleSheet.create({
     color: colors.black,
     borderColor: colors.gray,
     borderBottomWidth: 2,
-    marginBottom: 150,
-  },
+  }
 });
 
 export default BookingInput;

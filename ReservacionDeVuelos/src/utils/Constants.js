@@ -18,4 +18,8 @@ export default contentText = {
   passengersTitle: 'How many passengers?',
   yourrequest: 'Your request was received.',
   passengers: 'Passengers',
+  errorLocation: 'Please, insert your current location.',
+  errorDestiny: 'Please, insert your destiny.',
+  errorDate: 'Please, select a date.',
+  dateSelected: 'Date selected: '
 };
