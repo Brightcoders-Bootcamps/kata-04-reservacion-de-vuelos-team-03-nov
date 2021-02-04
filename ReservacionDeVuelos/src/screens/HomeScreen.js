@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     fontSize: 70,
     color: colors.blue,
     alignSelf: 'center',
-    top: 520,
+    top: 650,
   },
 });
 
