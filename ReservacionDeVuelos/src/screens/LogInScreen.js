@@ -10,7 +10,6 @@ const LogInScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPasword] = useState('');
   const {login} = useContext(AuthContext);
-
   const [formError, setFormError] = useState({});
   
   const onLoginValidate = () => {
@@ -19,29 +18,38 @@ const LogInScreen = ({navigation}) => {
       if(!email) errors.email = true;
       if(!password) errors.password = true;
   }else{
-    login(email, password) 
+    login(email, password);
   }    
       setFormError(errors);
-  }
-
+  };
+  
+ 
   return (
     <View style={styles.container}>
       <View style={styles.ContainerInput}>
         <Text style={styles.title}> {contentText.logInTitle} </Text>
-        <Text style={styles.formInputtext}> {contentText.email} </Text>
-        {formError.email &&
-        <Text style={styles.textError}>{contentText.errorEmail}</Text>
-        }
+       
+        <View style={{flexDirection: 'row'}}>
+          <Text style={styles.formInputtext}> {contentText.email} </Text>
+          {formError.email && (
+            <Text style={styles.textError}>{contentText.errorEmail} </Text>
+          )}
+        </View>
+
 
         <FormInput
           labelValue={email}
           onChangeText={(userEmail) => setEmail(userEmail)}
           secureTextEntry={false}
         />
-        <Text style={styles.formInputtext}> {contentText.password} </Text>
-        {formError.password &&
-        <Text style={styles.textError}>{contentText.errorPassword}</Text>
-      }
+       
+
+       <View style={{flexDirection: 'row'}}>
+          <Text style={styles.formInputtext}> {contentText.password} </Text>
+          {formError.password && (
+            <Text style={styles.textError}>{contentText.errorPassword} </Text>
+          )}
+        </View>
 
         <FormInput
           labelValue={password}
@@ -102,7 +110,7 @@ const styles = StyleSheet.create({
     color: colors.darkGray
   },
   textError: {
-    fontSize: 10,
+    fontSize: 12,
     color: colors.red,
     marginLeft: 10, 
     fontWeight: 'bold',
