@@ -12,24 +12,33 @@ const HowManyPassengers = (props) => {
   const {navigation, route} = props;
   const {origin, destiny, date} = route.params.formData;
   const {user} = useContext(AuthContext);
+  const [passen, setPasent] = useState(0);
 
   const [formData, setFormData] = useState({
     origin: origin,
     destiny: destiny,
     date: date,
-    passengers: '2',
   });
+  const [formError, setFormError] = useState({});
 
   const onRegister = async () => {
-    await firestore().collection('userFlightData-'+ user.uid).add({
-      origin: formData.origin,
-      destiny: formData.destiny,
-      date: formData.date,
-      passengers: formData.passengers,
-    });
+    let errors = {};
+    if (passen == 0) {
+      if (passen == 0) errors.passenger = true;
+    }else{  
+    await firestore()
+      .collection('userFlightData-' + user.uid)
+      .add({
+        origin: formData.origin,
+        destiny: formData.destiny,
+        date: formData.date,
+        passengers: passen,
+      });
     navigation.navigate('RequestReceived', {
       formData,
-    });
+      passen,
+    });}
+    setFormError(errors);
   };
 
   return (
@@ -55,19 +64,24 @@ const HowManyPassengers = (props) => {
           </View>
         </View>
         <View style={styles.moreDetails}>
-          <Text>{contentText.dateSelected}{formData.date}</Text>
+          <Text>
+            {contentText.dateSelected}
+            {formData.date}
+          </Text>
         </View>
       </View>
 
       <Text style={styles.title}>{contentText.passengersTitle}</Text>
 
-      <PickerPassenger
-        value={(e) => setFormData({...formData, passengers: e})}
-      />
+      <PickerPassenger setPasent={setPasent} />
+    
+      {formError.passenger && (
+        <Text style={styles.titleError}>{contentText.errorPassenger}</Text>
+      )}
 
       <FormButton
         buttonTitle="Next"
-        backgroundColor={colors.blue}
+        backgroundColor={passen ? colors.blue : colors.gray}
         color={colors.white}
         onPress={onRegister}
       />
@@ -128,5 +142,10 @@ const styles = StyleSheet.create({
   country: {
     fontSize: 14,
     color: colors.darkGray,
+  },
+  titleError: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: colors.red,
   },
 });

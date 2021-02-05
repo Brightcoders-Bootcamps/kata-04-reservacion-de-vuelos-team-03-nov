@@ -13,19 +13,42 @@ const SignInScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPasword] = useState('');
   const {register, googleLogIn} = useContext(AuthContext);
+  const [formError, setFormError] = useState({});
+
+  const onRegister = () => {
+    let errors = {};
+    if (!name || !email || !password) {
+      if (!name) errors.name = true;
+      if (!email) errors.email = true;
+      if (!password) errors.password = true;
+    } else {
+      register(email, password);
+    }
+    setFormError(errors);
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.ContainerInput}>
         <Text style={styles.title}> {contentText.signUpTitle} </Text>
-        <Text style={styles.formInputtext}> {contentText.firstName} </Text>
+        <View style={{flexDirection: 'row'}}>
+          <Text style={styles.formInputtext}> {contentText.firstName} </Text>
+          {formError.name && (
+            <Text style={styles.textError}>{contentText.errorName} </Text>
+          )}
+        </View>
 
         <FormInput
           labelValue={name}
           onChangeText={(userName) => setName(userName)}
           secureTextEntry={false}
         />
-        <Text style={styles.formInputtext}>{contentText.email} </Text>
+        <View style={{flexDirection: 'row'}}>
+          <Text style={styles.formInputtext}>{contentText.email} </Text>
+          {formError.email && (
+            <Text style={styles.textError}> {contentText.errorEmail}</Text>
+          )}
+        </View>
 
         <FormInput
           labelValue={email}
@@ -33,7 +56,12 @@ const SignInScreen = ({navigation}) => {
           secureTextEntry={false}
         />
 
-        <Text style={styles.formInputtext}> {contentText.password} </Text>
+        <View style={{flexDirection: 'row'}}>
+          <Text style={styles.formInputtext}> {contentText.password} </Text>
+          {formError.password && (
+            <Text style={styles.textError}>{contentText.errorPassword}</Text>
+          )}
+        </View>
 
         <FormInput
           labelValue={password}
@@ -48,11 +76,10 @@ const SignInScreen = ({navigation}) => {
       </Text>
 
       <Checkbox />
-
       <FormButton
         buttonTitle={contentText.signUpTitle}
-        onPress={() => register(email, password)}
-        backgroundColor={colors.gray}
+        onPress={onRegister}
+        backgroundColor={formError ? colors.gray : colors.blue}
         color={colors.white}
       />
 
@@ -61,7 +88,7 @@ const SignInScreen = ({navigation}) => {
       <GoogleButton
         buttonTitle={contentText.signUpGoogle}
         onPress={() => googleLogIn()}
-        backgroundColor={colors.gray}
+        backgroundColor={formError ? colors.gray : colors.blue}
         color={colors.white}
       />
 
@@ -122,6 +149,12 @@ const styles = StyleSheet.create({
     color: colors.darkGray,
     marginTop: 5,
     marginBottom: 5,
+  },
+  textError: {
+    color: colors.red,
+    fontSize: 12,
+    marginLeft: 5,
+    padding: 3,
   },
 });
 

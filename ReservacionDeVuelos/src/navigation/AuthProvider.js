@@ -34,12 +34,18 @@ export const AuthProvider = ({children}) => {
         register: async (email, password) => {
           try {
             await auth().createUserWithEmailAndPassword(email, password);
-          } catch (e) { 
-            console.log(e.code)
-            if(e.code === 'auth/email-already-in-use') {
-             Alert.alert('error');
+          } catch (e) {
+            switch (e.code) {
+              case 'auth/invalid-email':
+                Alert.alert('invalid email');
+                break;
+              case 'auth/email-already-in-use':
+                Alert.alert('email already in use');
+                break;
+              case 'auth/weak-password':
+                Alert.alert('weak password');
+                break;
             }
-
           }
         },
         logout: async () => {

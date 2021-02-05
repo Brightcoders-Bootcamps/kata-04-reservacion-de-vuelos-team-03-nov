@@ -1,23 +1,23 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import FormButton from './../../components/FormButton';
-import IconBack from 'react-native-vector-icons/Ionicons';
 import contentText from './../../utils/Constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const RequestReceived = (props) => {
   const {navigation, route} = props;
   const {origin, destiny, date, passengers} = route.params.formData;
+  const {passen} = route.params;
 
   const [formData, setFormData] = useState({
     origin: origin,
     destiny: destiny,
     date: date,
-    passengers: passengers,
+    passengers: passen,
   });
 
   const onRegister = () => {
-    navigation.navigate('Home', {});
+    navigation.navigate('Home');
   };
 
   return (
@@ -35,7 +35,7 @@ const RequestReceived = (props) => {
           </View>
         </View>
         <View style={styles.moreDetails}>
-          <Text>{formData.date} </Text>
+          <Text> {formData.date} </Text>
           <Text> {formData.passengers} passengers </Text>
         </View>
         <Text style={styles.title}>{contentText.yourrequest}</Text>

@@ -21,5 +21,9 @@ export default contentText = {
   errorLocation: 'Please, insert your current location.',
   errorDestiny: 'Please, insert your destiny.',
   errorDate: 'Please, select a date.',
-  dateSelected: 'Date selected: '
+  errorPassenger: 'Please, select a number of passengers',
+  dateSelected: 'Date selected: ',
+  errorName: 'Please, insert your name.',
+  errorEmail: 'Please, insert your email.',
+  errorPassword: 'Please, insert your password.',
 };

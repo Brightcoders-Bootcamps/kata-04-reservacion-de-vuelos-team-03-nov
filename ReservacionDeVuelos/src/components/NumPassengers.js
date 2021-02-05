@@ -62,11 +62,13 @@ const ItemToRender = ({item, index}, indexSelected, vertical) => {
   );
 };
 
-const NumPassengers = () => {
+const NumPassengers = (props) => {
+  const {setPasent} = props;
+
   const handleChange = (index) => {
     setPassenger(index);
+    setPasent(index + 1);
   };
-
   const [passenger, setPassenger] = useState(1);
 
   return (
