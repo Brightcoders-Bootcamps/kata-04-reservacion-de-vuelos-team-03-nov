@@ -11,17 +11,38 @@ const LogInScreen = ({navigation}) => {
   const [password, setPasword] = useState('');
   const {login} = useContext(AuthContext);
 
+  const [formError, setFormError] = useState({});
+  
+  const onLoginValidate = () => {
+    let errors ={};
+     if(!email || !password) {
+      if(!email) errors.email = true;
+      if(!password) errors.password = true;
+  }else{
+    login(email, password) 
+  }    
+      setFormError(errors);
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.ContainerInput}>
         <Text style={styles.title}> {contentText.logInTitle} </Text>
         <Text style={styles.formInputtext}> {contentText.email} </Text>
+        {formError.email &&
+        <Text style={styles.textError}>{contentText.errorEmail}</Text>
+        }
+
         <FormInput
           labelValue={email}
           onChangeText={(userEmail) => setEmail(userEmail)}
           secureTextEntry={false}
         />
         <Text style={styles.formInputtext}> {contentText.password} </Text>
+        {formError.password &&
+        <Text style={styles.textError}>{contentText.errorPassword}</Text>
+      }
+
         <FormInput
           labelValue={password}
           onChangeText={(userPassword) => setPasword(userPassword)}
@@ -33,7 +54,7 @@ const LogInScreen = ({navigation}) => {
         buttonTitle="Log In"
         backgroundColor={colors.gray}
         color={colors.white}
-        onPress={() => login(email, password)}
+        onPress= {onLoginValidate}
       />
       <View style={styles.login}>
         <Text style={styles.textLogIn}>{contentText.noAccount}</Text>
@@ -79,6 +100,12 @@ const styles = StyleSheet.create({
   textLogIn: {
     fontSize: 16,
     color: colors.darkGray
+  },
+  textError: {
+    fontSize: 10,
+    color: colors.red,
+    marginLeft: 10, 
+    fontWeight: 'bold',
   },
 });
 
